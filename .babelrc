@@ -1,0 +1,13 @@
+{
+    "presets": [[
+        "@babel/env",
+        {
+            "corejs": 3,
+            "useBuiltIns": "usage",
+            "targets":["> 0.5%"],
+            "modules": false
+        }],
+        "@babel/react"],
+    "plugins":["@babel/plugin-proposal-class-properties"],
+
+}

@@ -1,0 +1,57 @@
+
+.error{
+    &__wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    &__title{
+        font-family: 'Raleway', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 8vh;
+        position: relative;
+        &::before, &::after{
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            // left: 0;
+            // transform: translate(-50%, -50%);
+            background: #222;
+            overflow: hidden;
+        }
+        &::after{
+            left: 2px;
+            text-shadow: -1px 0 #ff1b1b;
+            animation: glitch1 2s infinite ease;
+        }
+        &::before{
+            left: -2px;
+            text-shadow: 1px 0 #2124ff;
+            animation: glitch2 10s infinite ease;
+        }
+    }
+}
+
+@keyframes glitch1 {
+    $steps: 25;
+    @for $i  from 0 through $steps {
+        #{percentage($i*(1/$steps))}{
+            $top: random(100);
+            $bottom: random(101 - $top);
+            clip-path: inset(#{$top}% 0 #{$bottom}% 0)
+        }
+    }
+}
+
+@keyframes glitch2 {
+    $steps: 25;
+    @for $i  from 0 through $steps {
+        #{percentage($i*(1/$steps))}{
+            $top: random(100);
+            $bottom: random(101 - $top);
+            clip-path: inset(#{$top}% 0 #{$bottom}% 0)
+        }
+    }
+}
