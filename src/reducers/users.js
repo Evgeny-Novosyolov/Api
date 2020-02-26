@@ -186,6 +186,13 @@ const users = (state = initialState, action = {}) => {
                     ...state.editPostLoading.slice(postIndexEdit2 + 1)]
             }
 
+        case types.FETCH_ADD_POST_ERROR: 
+        
+            return {
+                ...state,
+                addPostLoading:false
+            }
+
 
 
         default:

@@ -120,6 +120,10 @@ const addPost = (data) => async dispatch=>{
         }
 
     } catch(err) {
+        alert("Не удалось добавить пост")
+        dispatch({
+            type: types.FETCH_ADD_POST_ERROR,
+        })
         throw new Error(`Could not fetch ${url}` + `, received ${res.status}`)
     }
 
